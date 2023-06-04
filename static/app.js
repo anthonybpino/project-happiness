@@ -12,6 +12,7 @@ $(function() {
         for (var i = 0; i < dataArray.length; i++) {
           var dataObject = {};
           var dataRow = dataArray[i].split(",");
+          
           for (var j = 0; j < dataRow.length; j++) {
             dataObject[dataRow[j]] = dataRow[j];
           }
