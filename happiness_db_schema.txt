@@ -1,0 +1,22 @@
+--Schema for happiness_db which creates table structure to import csv
+
+-- Drop table if exists
+DROP TABLE happiness;
+
+--CREATE TABLE happiness
+CREATE TABLE happiness (
+  country VARCHAR(30) PRIMARY KEY,
+  happiness_score FLOAT NOT NULL,
+  gdp_per_capita FLOAT NOT NULL,
+  social_support FLOAT NOT NULL,
+  healthy_life_expectancy FLOAT,
+  freedom_to_make_life_choices FLOAT NOT NULL,
+  generosity FLOAT NOT NULL,
+  perceptions_of_corruption FLOAT NOT NULL,
+  rank INTEGER NOT NULL,
+  region VARCHAR(10) NOT NULL,
+  sub_region VARCHAR(35) NOT NULL,
+  iso_alpha VARCHAR(3) NOT NULL
+);
+
+
