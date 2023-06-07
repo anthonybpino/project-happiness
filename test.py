@@ -14,7 +14,7 @@ from flask import Flask, jsonify
 # engine = create_engine("sqlite:///titanic.sqlite")
 
 
-engine = create_engine("postgresql+psycopg2://usernamehere:yourpasswordhere@localhost:5432/happiness_db")
+engine = create_engine("postgresql+psycopg2://postgres:k8cjr8@localhost:5432/happiness_db")
 
 
 
@@ -59,38 +59,33 @@ def countries():
     """Return a list of all countries"""
     # Query all passengers
     #results = session.query(Passenger.name).all()
-    results = session.query(happiness.country).all()
+    results = session.query(happiness.country, happiness.happiness_score, happiness.gdp_per_capita, happiness.social_support, happiness.healthy_life_expectancy, happiness.freedom_to_make_life_choices, happiness.generosity, happiness.perceptions_of_corruption, happiness.rank, happiness.region, happiness.sub_region, happiness.iso_alpha).all()
 
 
     session.close()
 
-    # Convert list of tuples into normal list
-    all_names = list(np.ravel(results))
-    
-    return jsonify(all_names)
+    all_happiness = []
+    for country, happiness_score, gdp_per_capita, social_support, healthy_life_expectancy, freedom_to_make_life_choices, generosity, perceptions_of_corruption, rank, region, sub_region, iso_alpha in results:
+        happiness_dict = {}
+        happiness_dict["country"] = country
+        happiness_dict["happiness_score"] = happiness_score
+        happiness_dict["gdp_per_capita"] = gdp_per_capita
+        happiness_dict["social_support"] = social_support
+        happiness_dict["healthy_life_expectancy"] = healthy_life_expectancy
+        happiness_dict["freedom_to_make_life_choices"] = freedom_to_make_life_choices
+        happiness_dict["generosity"] = generosity
+        happiness_dict["perceptions_of_corruption"] = perceptions_of_corruption
+        happiness_dict["rank"] = rank
+        happiness_dict["region"] = region
+        happiness_dict["sub_region"] = sub_region
+        happiness_dict["iso_alpha"] = iso_alpha
+        all_happiness.append(happiness_dict)
+
+  
+    return jsonify(all_happiness)
 
 
-# @app.route("/api/v1.0/passengers")
-# def passengers():
-#     # Create our session (link) from Python to the DB
-#     session = Session(engine)
 
-#     """Return a list of passenger data including the name, age, and sex of each passenger"""
-#     # Query all passengers
-#     results = session.query(Passenger.name, Passenger.age, Passenger.sex).all()
-
-#     session.close()
-
-#     # Create a dictionary from the row data and append to a list of all_passengers
-#     all_passengers = []
-#     for name, age, sex in results:
-#         passenger_dict = {}
-#         passenger_dict["name"] = name
-#         passenger_dict["age"] = age
-#         passenger_dict["sex"] = sex
-#         all_passengers.append(passenger_dict)
-
-#     return jsonify(all_passengers)
 
 
 if __name__ == '__main__':
