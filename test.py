@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 #import psycopg2
 from flask import Flask, jsonify
-
+from flask_cors import CORS
 
 #################################################
 # Database Setup
@@ -35,7 +35,7 @@ session.query(happiness.country).all()
 # # Flask Setup
 # #################################################
 app = Flask(__name__)
-
+CORS(app)
 
 # #################################################
 # # Flask Routes
@@ -47,20 +47,18 @@ def welcome():
     return (
         f"Available Routes:<br/>"
         f"/api/v1.0/countries<br/>"
-        f"/api/v1.0/passengers"
-    )
+    ) 
 
 
-@app.route("/api/v1.0/countries")
+@app.route("/api/v1.0/countries", methods=['GET'])
 def countries():
     # Create our session (link) from Python to the DB
     session = Session(engine)
-
+    
     """Return a list of all countries"""
-    # Query all passengers
-    #results = session.query(Passenger.name).all()
+       
     results = session.query(happiness.country, happiness.happiness_score, happiness.gdp_per_capita, happiness.social_support, happiness.healthy_life_expectancy, happiness.freedom_to_make_life_choices, happiness.generosity, happiness.perceptions_of_corruption, happiness.rank, happiness.region, happiness.sub_region, happiness.iso_alpha).all()
-
+    
 
     session.close()
 
@@ -83,10 +81,6 @@ def countries():
 
   
     return jsonify(all_happiness)
-
-
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
