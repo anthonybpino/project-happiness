@@ -15,11 +15,13 @@ Analysis of these relationships can be found in the "Visualizations & Analysis" 
 
 ## Repository Contents:
 
-_
+*Edit Again Later after project is complete and repository has been cleaned up*
+
 
 ## Notes & Resources:
 
-_
+Dataset Used: https://www.kaggle.com/datasets/ajaypalsinghlo/world-happiness-report-2023
+
 
 ## Visualizations & Analysis:
 
@@ -32,3 +34,5 @@ _
 - Riddhi Sodagar
 
 ## Link to Presentation:
+
+_
