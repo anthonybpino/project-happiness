@@ -22,8 +22,9 @@ $.ajax({
     // Top 10 most happy
     var trace = {
       x: countries.slice(0, 10),
-      y: happinessScores.slice(0, 10),
-      type: 'hbar',
+      y: happinessScores.slice(0, 10), 
+      //orientation: "h",
+      type: 'bar',
       marker: {
         color: "green"
       }
@@ -36,7 +37,7 @@ $.ajax({
     var layout_best = {
       title: '10 Highest Happiness Scores by Country',
       xaxis: {
-        autorange: 'reversed',
+       // autorange: 'reversed',
         tickangle: 30
       },
       yaxis: { 
@@ -52,7 +53,7 @@ $.ajax({
     var trace_worst = {
       x: countries.slice(-10),
       y: happinessScores.slice(-10),
-      type: 'hbar',
+      type: 'bar',
       marker: {
         color: "blue"
       }
@@ -61,7 +62,7 @@ $.ajax({
     var graphDataWorst = [trace_worst];
 
     var layout_worst = {
-      title: '10 lowest Happiness Scores by Country',
+      title: '10 Lowest Happiness Scores by Country',
       yaxis: {
         title: 'Happiness Score'
       }
