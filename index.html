@@ -8,16 +8,21 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/styles.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <title>World Happiness 2023</title>
   </head>
+  
   <body>
+    <!--Giant header-->
     <div class="jumbotron jumbotron-fluid text-center">
         <div class="container">
           <h1 class="display-4">World Happiness Index 2023</h1>
           <p class="lead">A Visual Exploration of Happiness Around the World 🌎</p>
         </div>
       </div>
+
+      <!--So far unused dropdowns for selections-->
       <div class="row">
         <div class="col-md-2">
           <div class="well">
@@ -31,7 +36,12 @@
             <div id="sample-metadata" class="panel-body"></div>
           </div>
         </div>
-        <div id="plot"></div>
+
+        <!--Plots for top 10 and bottom 10-->
+        <div class="container"></div>
+          <div class="plot" id="plot_good"></div>
+          <div class="plot" id="plot_bad"></div>
+        </div>
 
     <!-- Jquery first, then popper.js, then Bootstrap JS, then D3, then Plotly-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

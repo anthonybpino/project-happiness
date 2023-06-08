@@ -19,30 +19,55 @@ $.ajax({
     var countries = data.map(item => item.country);
     var happinessScores = data.map(item => item['happiness_score']);
   
-    // Creating the trace for the bar graph
+    // Top 10 most happy
     var trace = {
-    x: countries,
-    y: happinessScores,
-    type: 'bar',
-    marker: {
-      color: "green"
-    }
+      x: countries.slice(0, 10),
+      y: happinessScores.slice(0, 10),
+      type: 'hbar',
+      marker: {
+        color: "green"
+      }
     };
   
     // Combining the trace into an array
     var graphData = [trace];
   
     // Layout configuration
-    var layout = {
-      title: 'Happiness Scores by Country',
+    var layout_best = {
+      title: '10 Highest Happiness Scores by Country',
+      xaxis: {
+        autorange: 'reversed',
+        tickangle: 30
+      },
       yaxis: { 
         title: 'Happiness Score' 
       },
     };
   
     // Plotting the bar graph
-    Plotly.newPlot('plot', graphData, layout);
-  
+    Plotly.newPlot('plot_good', graphData, layout_best);
+    
+
+    // Top 10 least happy
+    var trace_worst = {
+      x: countries.slice(-10),
+      y: happinessScores.slice(-10),
+      type: 'hbar',
+      marker: {
+        color: "blue"
+      }
+    };
+
+    var graphDataWorst = [trace_worst];
+
+    var layout_worst = {
+      title: '10 lowest Happiness Scores by Country',
+      yaxis: {
+        title: 'Happiness Score'
+      }
+    };
+
+    Plotly.newPlot('plot_bad', graphDataWorst, layout_worst)
   },
 
   error: function(error) {
