@@ -35,9 +35,6 @@ $.ajax({
     // Layout configuration
     var layout = {
       title: 'Happiness Scores by Country',
-      xaxis: {
-        tickangle: -45
-      },
       yaxis: { 
         title: 'Happiness Score' 
       },
@@ -51,7 +48,7 @@ $.ajax({
   error: function(error) {
     console.log(error);
   }
-  
+
 });
 
 // console.log(data);
