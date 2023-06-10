@@ -14,7 +14,7 @@ from flask_cors import CORS
 # engine = create_engine("sqlite:///titanic.sqlite")
 
 
-engine = create_engine("postgresql+psycopg2://postgres:k8cjr8@localhost:5432/happiness_db")
+engine = create_engine("postgresql+psycopg2://postgres:qwerty@localhost:5432/happiness")
 
 
 
