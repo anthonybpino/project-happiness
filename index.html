@@ -26,7 +26,7 @@
     crossorigin=""/>
     
     <!-- leaflet-choropleth JavaScript -->
-    <script type="text/javascript" src="static/js/choropleth.js"></script>
+    <script type="text/javascript" src="static/choropleth.js"></script>
 
   </head>
   
@@ -43,22 +43,33 @@
       <div class="row">
         <div class="col-md-2">
           <div class="well">
-            <h5>Country</h5>
-            <select id="selDataset" onchange="optionChanged(this.value)"></select>
+            <h5>World Analysis</h5>
+            <!-- <select id="selDataset" onchange="optionChanged(this.value)"></select> -->
+            <select onChange="window.location.href=this.value">
+              <option value="http://127.0.0.1:5500/indexclass.html">Choose</option>
+              <option value="http://127.0.0.1:5500/sunburst.html">Sunburst Map</option>
+            </select>
           </div>
-          <div class="panel panel-primary">
+          <!-- <div class="panel panel-primary">
             <div class="panel-heading">
               <h3 class="panel-title">Demographic Info</h3>
             </div>
             <div id="sample-metadata" class="panel-body"></div>
-          </div>
+          </div> -->
         </div>
-        <a href="sunburst.html">Interactive sunburst plot</a>
+        <!-- <a href="sunburst.html">Interactive sunburst plot</a> -->
         
         <!--Plots for top 10 and bottom 10-->
         <div class="container"></div>
           <div class="plot" id="plot_good"></div>
           <div class="plot" id="plot_bad"></div>
+          <div class="plot" id="plot_scatter_gdp"></div>
+          <div class="plot" id="plot_scatter_generosity"></div>
+          <div class="plot" id="plot_scatter_freedom"></div>
+          <div class="plot" id="plot_scatter_healthy"></div>
+          <div class="plot" id="plot_scatter_corruption"></div>
+          <div class="plot" id="plot_scatter_support"></div>
+          <div id="map"></div>
         </div>
 
     <!-- Jquery first, then popper.js, then Bootstrap JS, then D3, then Plotly-->
@@ -67,6 +78,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./static/app.js"></script>
+    <script src="./static/app_scatter.js"></script>
 </body>
 </html>
