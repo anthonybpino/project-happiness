@@ -28,6 +28,8 @@ $.ajax({
     var trace2 = {
       x: gdp,
       y: happinessScores,
+      text: countries,
+      hovertemplate: "Happiness Score: %{x}, GDP Per Cap: %{y}, Country: %{text}",
       type: "scatter",
       mode: "markers",
       marker: {
@@ -61,6 +63,8 @@ $.ajax({
     var trace3 = {
       x: generosity,
       y: happinessScores,
+      text: countries,
+      hovertemplate: "Happiness Score: %{x}, Generosity: %{y}, Country: %{text}",
       type: "scatter",
       mode: "markers",
       marker: {
@@ -94,6 +98,8 @@ $.ajax({
     var trace4 = {
       x: freedom,
       y: happinessScores,
+      text: countries,
+      hovertemplate: "Happiness Score: %{x}, Freedom of Choice: %{y}, Country: %{text}",
       type: "scatter",
       mode: "markers",
       marker: {
@@ -127,6 +133,8 @@ $.ajax({
     var trace5 = {
       x: healthy,
       y: happinessScores,
+      text: countries,
+      hovertemplate: "Happiness Score: %{x}, Healthy Life Expectancy: %{y}, Country: %{text}",
       type: "scatter",
       mode: "markers",
       marker: {
@@ -161,6 +169,8 @@ $.ajax({
     var trace6 = {
       x: corruption,
       y: happinessScores,
+      text: countries,
+      hovertemplate: "Happiness Score: %{x}, Corruption: %{y}, Country: %{text}",
       type: "scatter",
       mode: "markers",
       marker: {
@@ -194,6 +204,8 @@ $.ajax({
     var trace7 = {
       x: support,
       y: happinessScores,
+      text: countries,
+      hovertemplate: "Happiness Score: %{x}, Social Support: %{y}, Country: %{text}",
       type: "scatter",
       mode: "markers",
       marker: {
