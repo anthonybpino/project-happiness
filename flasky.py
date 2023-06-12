@@ -11,16 +11,15 @@ from flask_cors import CORS
 #################################################
 # Database Setup
 #################################################
-# engine = create_engine("sqlite:///titanic.sqlite")
 
 
-engine = create_engine("postgresql+psycopg2://postgres:qwerty@localhost:5432/happiness")
+engine = create_engine("postgresql+psycopg2://postgres:passwordhere@localhost:5432/happiness_db")
 
 
 
-# reflect an existing database into a new model
+# Reflect the existing database into a new model
 Base = automap_base()
-# reflect the tables
+# Reflect the tables
 Base.prepare(autoload_with=engine)
 Base.classes.keys()
 happiness = Base.classes.happiness
@@ -29,10 +28,10 @@ session.query(happiness.country).all()
 
 
 # # Save reference to the table
-# Passenger = Base.classes.passenger
+
 
 # #################################################
-# # Flask Setup
+# # Flask Setup and CORS to allow for cross site scripting
 # #################################################
 app = Flask(__name__)
 CORS(app)
@@ -55,11 +54,10 @@ def countries():
     # Create our session (link) from Python to the DB
     session = Session(engine)
     
-    """Return a list of all countries"""
+    """Return a list of all country data"""
        
     results = session.query(happiness.country, happiness.happiness_score, happiness.gdp_per_capita, happiness.social_support, happiness.healthy_life_expectancy, happiness.freedom_to_make_life_choices, happiness.generosity, happiness.perceptions_of_corruption, happiness.rank, happiness.region, happiness.sub_region, happiness.iso_alpha).all()
-    
-
+    # Close db session
     session.close()
 
     all_happiness = []

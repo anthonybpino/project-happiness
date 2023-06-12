@@ -15,15 +15,16 @@ $.ajax({
       data.push(result[i]);
     }
 
-    // Since getting the JSON from flask was a success, plot what you need
+    // Since getting the JSON from flask was a success, start setting variables for the data
     var countries = data.map(item => item.country);
     var happinessScores = data.map(item => item['happiness_score']);
     var subregions = data.map(item => item.sub_region);
 
 
-    //scatterplot gdp
+    //Scatterplot GDP starts here
+    //Set gdp variable for plotting
     var gdp = data.map(item => item.gdp_per_capita);
-    //console.log(happinessScores);
+    
     
     var trace2 = {
       x: gdp,
@@ -52,11 +53,11 @@ $.ajax({
       },
     };
 
-    
+    //Plot scatter plot
     Plotly.newPlot('plot_scatter_gdp', graphData2, layout_best);
-    //end scatterplot gdp
+    //End Scatterplot GDP
 
-    //scatter plot generosity
+    //Start Scatter plot generosity
     
     var generosity = data.map(item => item.generosity);
     
@@ -89,9 +90,9 @@ $.ajax({
 
     
     Plotly.newPlot('plot_scatter_generosity', graphData3, layout_best);
-    //scatter plot generosity
+    //End of scatter plot generosity
 
-//scatter plot freedom to make life choices
+    //Start scatter plot freedom to make life choices
     
     var freedom = data.map(item => item.freedom_to_make_life_choices);
         
@@ -124,9 +125,9 @@ $.ajax({
 
 
     Plotly.newPlot('plot_scatter_freedom', graphData4, layout_best);
-    //scatter plot freedom
+    //End of scatter plot freedom
     
-    //scatter plot healthy_life_expectancy
+    //Start scatter plot healthy_life_expectancy
         
     var healthy = data.map(item => item.healthy_life_expectancy);
             
@@ -159,10 +160,10 @@ $.ajax({
 
 
     Plotly.newPlot('plot_scatter_healthy', graphData5, layout_best);
-    //scatter plot healthy
+    //End of scatter plot healthy
 
 
-     //scatter plot perceptions_of_corruption
+     //Start of scatter plot perceptions_of_corruption
         
     var corruption = data.map(item => item.perceptions_of_corruption);
             
@@ -195,9 +196,9 @@ $.ajax({
 
 
     Plotly.newPlot('plot_scatter_corruption', graphData6, layout_best);
-    //scatter plot corruption
+    //End of scatter plot corruption
 
-    //scatter plot social support
+    //Start of scatter plot social support
         
     var support = data.map(item => item.social_support);
             
@@ -230,23 +231,10 @@ $.ajax({
 
 
     Plotly.newPlot('plot_scatter_support', graphData7, layout_best);
-    //scatter plot social support
+    //End of scatter plot social support
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Top 10 most happy
+    // Top 10 most happy bar chart
     var trace = {
       x: countries,
       y: happinessScores.slice(0, 10),
@@ -275,7 +263,7 @@ $.ajax({
     Plotly.newPlot('plot_good', graphData, layout_best);
     
 
-    // Top 10 least happy
+    // Top 10 least happy bar chart
     var trace_worst = {
       x: countries.slice(-10),
       y: happinessScores.slice(-10),
