@@ -15,7 +15,23 @@ Analysis of these relationships can be found in the "Visualizations & Analysis" 
 
 ## Repository Contents:
 
-*Edit Again Later after project is complete and repository has been cleaned up*
+- Output folder containing:
+  -  Zip File of Original Datasets
+  -  Json File Containing the Data
+  -  Excel File Explaining the Utilized Variables
+  -  Sample Schema Used to Create Database in pgAdmin
+  -  CSV File of Cleaned Dataset
+- Static folder containing the following files (which created and styled the some of the various charts & plots): 
+  - app_scatter.js
+  - choropleth.js
+  - countrydata.geojson
+  - styles.css
+- HTML files:
+  - index.html
+  - choropleth.html
+  - sunburst.html
+- Flask app (flasky.py) 
+- Jupyter notebook (plots.ipynb) creating the choropleth & sunburst visuals)
 
 
 ## Notes & Resources:
