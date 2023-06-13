@@ -48,8 +48,12 @@ Four types of visualizations were created.
 3. Sunburst Allowing Users to Focus on Happiness Levels within Specific Regions
   ![sunburst](Images/sunburst_happiness.png)
 4. Scatter Plots Displaying the Correlation Between Each Analyzed Variable & Hapiness Score
+
+## General Analysis
 First, to speak generally about the happiest and least happy locations according to the 2023 World Happiness Report:  If we look at the world as being split into 5 regions (Europe, Asia, the Americas, Africa, and Oceania), the happiest overall region is Oceania (which is also the smallest region – only including Australia and New Zealand), while the lowest happiness scores can be found in the region of Africa.  This is evident in both the choropleth map and the sunburst visual provided previously within this file.  
+
 With that being said, even though the happiest overall region is Oceania, the happiest three countries (Finland, Denmark, and Iceland) are all in Europe, specifically Northern Europe.  All three of these countries have some of the highest perceptions of freedom, higher than average GDPs (although not the highest), above average healthy life expectancies and fall within the highest 5 countries in terms of social support.  
+
 As was supported by the sunburst diagram and the choropleth map, 8 of the 10 countries with the lowest happiness scores were in Africa (although the lowest two – Afghanistan and Lebanon are both in Asia).  Afghanistan, which had the lowest happiness score (1.859), fell in the lowest range for social support, health life expectancy, GDP, and had the lowest perception of freedom of each country represented.  
 ## A Look at Each Variable’s Relationship with Happiness Score
 ### Generosity: Weak/No Association
