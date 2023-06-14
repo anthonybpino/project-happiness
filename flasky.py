@@ -13,7 +13,7 @@ from flask_cors import CORS
 #################################################
 
 
-engine = create_engine("postgresql+psycopg2://postgres:passwordhere@localhost:5432/happiness_db")
+engine = create_engine("postgresql+psycopg2://postgres:feb2023%40@localhost:5432/happiness_db")
 
 
 
